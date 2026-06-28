@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeCoMMerce — استراتيجية تسويقية مخصصة لمتجرك</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <div>We<span>CoMMerce</span></div>
+    </div>
+    <div class="nav-badge">استشارة مجانية</div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">تسويق إلكتروني للمتاجر</div>
+      <h1>ضاعف مبيعات <em>متجرك</em><br>مع استراتيجية مصممة لك</h1>
+      <p class="hero-desc">
+        نحلل وضع متجرك الحالي ونبني لك خطة تسويقية دقيقة تناسب منتجاتك وجمهورك. استشارة مجانية مع خبراء متخصصين في التجارة الإلكترونية.
+      </p>
+      <div class="hero-proof">
+        <div class="proof-item">
+          <div class="proof-check">✓</div>
+          <span>تحليل شامل لمتجرك وأداء إعلاناتك</span>
+        </div>
+        <div class="proof-item">
+          <div class="proof-check">✓</div>
+          <span>استراتيجية مخصصة 100% لمجالك</span>
+        </div>
+        <div class="proof-item">
+          <div class="proof-check">✓</div>
+          <span>بدون أي التزام أو تكلفة</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="form-card">
+        <div class="form-card-header">
+          <h2>ابدأ استشارتك المجانية</h2>
+          <p>أدخل بياناتك لنتواصل معك</p>
+        </div>
+
+        <div class="form-group">
+          <label for="name">الاسم الكامل <span class="required">*</span></label>
+          <input type="text" id="name" class="form-control" placeholder="محمد أحمد" />
+          <div class="error-msg" id="name-error">الرجاء إدخال اسمك الكامل</div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">البريد الإلكتروني <span class="required">*</span></label>
+          <input type="email" id="email" class="form-control" placeholder="example@email.com" />
+          <div class="error-msg" id="email-error">الرجاء إدخال بريد إلكتروني صحيح</div>
+        </div>
+
+        <button class="btn btn-accent" id="submit-btn" onclick="handleSubmit()">
+          <span class="btn-text">احصل على استراتيجيتك</span>
+          <span class="spinner"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
