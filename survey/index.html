@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeCoMMerce — الاستبيان</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <div>We<span>CoMMerce</span></div>
+    </div>
+  </nav>
+
+  <!-- Progress -->
+  <div class="progress-section">
+    <div class="progress-steps">
+      <div class="step done">
+        <div class="step-circle"></div>
+        <div class="step-label">التسجيل</div>
+      </div>
+      <div class="step-line done"></div>
+      <div class="step done">
+        <div class="step-circle"></div>
+        <div class="step-label">الفيديو</div>
+      </div>
+      <div class="step-line done"></div>
+      <div class="step active">
+        <div class="step-circle">3</div>
+        <div class="step-label">الاستبيان</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-circle">4</div>
+        <div class="step-label">الحجز</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Survey -->
+  <section class="survey-section">
+
+    <div class="survey-progress">
+      <div class="survey-progress-fill" id="survey-progress-fill" style="width:33%"></div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="survey-step active" id="step-1">
+      <div class="step-header">
+        <div class="step-counter">الخطوة 1 من 3</div>
+        <h2>معلومات المتجر</h2>
+        <p>أخبرنا عن متجرك لنتمكن من بناء الاستراتيجية المناسبة</p>
+      </div>
+
+      <div class="form-group">
+        <label for="store_url">رابط المتجر</label>
+        <input type="text" id="store_url" class="form-control" placeholder="https://متجرك.com" />
+      </div>
+
+      <div class="form-group">
+        <label for="store_category">مجال المتجر <span class="required">*</span></label>
+        <select id="store_category" class="form-control">
+          <option value="">اختر مجال متجرك</option>
+          <option value="أزياء">أزياء وملابس</option>
+          <option value="إلكترونيات">إلكترونيات وتقنية</option>
+          <option value="منتجات غذائية">منتجات غذائية</option>
+          <option value="صحة وجمال">صحة وجمال</option>
+          <option value="منزل وديكور">منزل وديكور</option>
+          <option value="رياضة">رياضة ولياقة</option>
+          <option value="ألعاب أطفال">ألعاب وأطفال</option>
+          <option value="كتب ومكتبات">كتب ومكتبات</option>
+          <option value="أخرى">أخرى</option>
+        </select>
+        <div class="error-msg" id="store_category-error">الرجاء اختيار مجال متجرك</div>
+      </div>
+
+      <div class="form-group">
+        <label for="experience">عمر المتجر <span class="required">*</span></label>
+        <select id="experience" class="form-control">
+          <option value="">كم عمر متجرك؟</option>
+          <option value="أقل من 6 شهور">أقل من 6 شهور</option>
+          <option value="6-12 شهر">6 - 12 شهر</option>
+          <option value="1-2 سنة">1 - 2 سنة</option>
+          <option value="2-5 سنوات">2 - 5 سنوات</option>
+          <option value="أكثر من 5 سنوات">أكثر من 5 سنوات</option>
+        </select>
+        <div class="error-msg" id="experience-error">الرجاء اختيار عمر متجرك</div>
+      </div>
+
+      <div class="survey-nav">
+        <button class="btn btn-primary" onclick="nextStep(1)">
+          <span class="btn-text">التالي</span>
+          <span class="spinner"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="survey-step" id="step-2">
+      <div class="step-header">
+        <div class="step-counter">الخطوة 2 من 3</div>
+        <h2>الميزانية والأداء</h2>
+        <p>ساعدنا في فهم وضعك الحالي لنقدم لك التوصيات الصحيحة</p>
+      </div>
+
+      <div class="form-group">
+        <label for="monthly_sales">متوسط المبيعات الشهرية (ريال/درهم) <span class="required">*</span></label>
+        <select id="monthly_sales" class="form-control">
+          <option value="">اختر النطاق</option>
+          <option value="0-5,000">0 — 5,000</option>
+          <option value="5,000-20,000">5,000 — 20,000</option>
+          <option value="20,000-50,000">20,000 — 50,000</option>
+          <option value="50,000-100,000">50,000 — 100,000</option>
+          <option value="100,000-500,000">100,000 — 500,000</option>
+          <option value="أكثر من 500,000">أكثر من 500,000</option>
+        </select>
+        <div class="error-msg" id="monthly_sales-error">الرجاء اختيار نطاق المبيعات</div>
+      </div>
+
+      <div class="form-group">
+        <label for="ad_budget">ميزانية الإعلانات الشهرية <span class="required">*</span></label>
+        <select id="ad_budget" class="form-control">
+          <option value="">اختر النطاق</option>
+          <option value="0-1,000">0 — 1,000</option>
+          <option value="1,000-5,000">1,000 — 5,000</option>
+          <option value="5,000-10,000">5,000 — 10,000</option>
+          <option value="10,000-50,000">10,000 — 50,000</option>
+          <option value="أكثر من 50,000">أكثر من 50,000</option>
+        </select>
+        <div class="error-msg" id="ad_budget-error">الرجاء اختيار ميزانية الإعلانات</div>
+      </div>
+
+      <div class="form-group">
+        <label for="roas">متوسط عائد الاستثمار ROAS <span class="required">*</span></label>
+        <select id="roas" class="form-control">
+          <option value="">اختر ROAS الحالي</option>
+          <option value="أقل من 1x">أقل من 1x (خسارة)</option>
+          <option value="1x-2x">1x — 2x</option>
+          <option value="2x-3x">2x — 3x</option>
+          <option value="3x-4x">3x — 4x</option>
+          <option value="أكثر من 4x">أكثر من 4x</option>
+          <option value="غير متأكد">غير متأكد</option>
+        </select>
+        <div class="error-msg" id="roas-error">الرجاء اختيار متوسط ROAS</div>
+      </div>
+
+      <div class="survey-nav">
+        <button class="btn btn-secondary" onclick="prevStep(2)">السابق</button>
+        <button class="btn btn-primary" onclick="nextStep(2)">التالي</button>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="survey-step" id="step-3">
+      <div class="step-header">
+        <div class="step-counter">الخطوة 3 من 3</div>
+        <h2>التحديات والأهداف</h2>
+        <p>ما الذي تريد تحقيقه وما العقبات التي تواجهها؟</p>
+      </div>
+
+      <div class="form-group">
+        <label>التحديات الحالية <span class="required">*</span></label>
+        <div class="checkbox-group" id="challenges-group">
+          <label class="checkbox-item">
+            <input type="checkbox" value="قلة الزوار" onchange="toggleCheckbox(this)" />
+            <span>قلة الزوار</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" value="انخفاض التحويل" onchange="toggleCheckbox(this)" />
+            <span>انخفاض التحويل</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" value="ارتفاع تكلفة الإعلانات" onchange="toggleCheckbox(this)" />
+            <span>ارتفاع تكلفة الإعلانات</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" value="ضعف الوعي بالعلامة" onchange="toggleCheckbox(this)" />
+            <span>ضعف الوعي بالعلامة</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" value="منافسة قوية" onchange="toggleCheckbox(this)" />
+            <span>منافسة قوية</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" value="مشاكل في المخزون" onchange="toggleCheckbox(this)" />
+            <span>مشاكل في المخزون</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" value="ضعف الاحتفاظ بالعملاء" onchange="toggleCheckbox(this)" />
+            <span>ضعف الاحتفاظ بالعملاء</span>
+          </label>
+        </div>
+        <div class="error-msg" id="challenges-error">الرجاء اختيار تحدٍ واحد على الأقل</div>
+      </div>
+
+      <div class="form-group">
+        <label for="main_goal">الهدف الرئيسي <span class="required">*</span></label>
+        <select id="main_goal" class="form-control">
+          <option value="">ما هو هدفك الأساسي؟</option>
+          <option value="زيادة المبيعات">زيادة المبيعات</option>
+          <option value="بناء الوعي بالعلامة">بناء الوعي بالعلامة التجارية</option>
+          <option value="اكتساب عملاء جدد">اكتساب عملاء جدد</option>
+          <option value="الاحتفاظ بالعملاء">الاحتفاظ بالعملاء الحاليين</option>
+          <option value="التوسع في السوق">التوسع في أسواق جديدة</option>
+          <option value="تحسين الربحية">تحسين الربحية وخفض التكاليف</option>
+        </select>
+        <div class="error-msg" id="main_goal-error">الرجاء اختيار هدفك الرئيسي</div>
+      </div>
+
+      <div class="form-group">
+        <label for="additional_notes">ملاحظات إضافية <span style="color:var(--mid);font-weight:400">(اختياري)</span></label>
+        <textarea id="additional_notes" class="form-control" placeholder="أي معلومات إضافية تود مشاركتها..."></textarea>
+      </div>
+
+      <div class="survey-nav">
+        <button class="btn btn-secondary" onclick="prevStep(3)">السابق</button>
+        <button class="btn btn-accent" id="submit-survey-btn" onclick="submitSurvey()">
+          <span class="btn-text">إرسال واحجز موعدك</span>
+          <span class="spinner"></span>
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/privacy-policy/">سياسة الخصوصية</a>
+      <span class="footer-sep">•</span>
+      <a href="/terms/">الشروط والأحكام</a>
+    </div>
+    <p class="footer-copy">© 2026 WeCoMMerce. All rights reserved.</p>
+    <p class="footer-disclaimer">This site is not a part of the Facebook website or Facebook Inc. Additionally, This site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="/js/survey.js"></script>
+</body>
+</html>
