@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeCoMMerce — استراتيجية تسويقية مخصصة لمتجرك</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <div>We<span>CoMMerce</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="/contact/">اتصل بي</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">تسويق إلكتروني للمتاجر</div>
+      <h1>ضاعف مبيعات <em>متجرك</em><br>مع استراتيجية مصممة لك</h1>
+      <p class="hero-desc">
+        أحلل وضع متجرك الحالي وأبني لك خطة تسويقية دقيقة تناسب منتجاتك وجمهورك. استشارة مجانية مع خبير متخصص في التجارة الإلكترونية.
+      </p>
+      <div class="hero-proof">
+        <div class="proof-item">
+          <div class="proof-check">✓</div>
+          <span>تحليل شامل لمتجرك وأداء إعلاناتك</span>
+        </div>
+        <div class="proof-item">
+          <div class="proof-check">✓</div>
+          <span>إسترارتيجية مخصصة لمجالك بالكامل</span>
+        </div>
+        <div class="proof-item">
+          <div class="proof-check">✓</div>
+          <span>استشارة مجانية بدون أي التزام</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="form-card">
+        <div class="form-card-header">
+          <h2>ابدأ استشارتك المجانية</h2>
+          <p>أدخل بياناتك لنتواصل معك</p>
+        </div>
+
+        <div class="form-group">
+          <label for="name">الاسم الكامل <span class="required">*</span></label>
+          <input type="text" id="name" class="form-control" placeholder="محمد أحمد" />
+          <div class="error-msg" id="name-error">الرجاء إدخال اسمك الكامل</div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">البريد الإلكتروني <span class="required">*</span></label>
+          <input type="email" id="email" class="form-control" placeholder="example@email.com" />
+          <div class="error-msg" id="email-error">الرجاء إدخال بريد إلكتروني صحيح</div>
+        </div>
+
+        <button class="btn btn-accent" id="submit-btn" onclick="handleSubmit()">
+          <span class="btn-text">احصل على استراتيجيتك</span>
+          <span class="spinner"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/about/">من أنا</a>
+      <span class="footer-sep">•</span>
+      <a href="/pricing/">الأسعار</a>
+      <span class="footer-sep">•</span>
+      <a href="/disclaimer/">إخلاء المسؤولية</a>
+      <span class="footer-sep">•</span>
+      <a href="/cookie-consent/">سياسة الكوكيز</a>
+      <span class="footer-sep">•</span>
+      <a href="/return-refund-policy/">سياسة الاسترجاع والاسترداد</a>
+      <span class="footer-sep">•</span>
+      <a href="/privacy/">سياسة الخصوصية</a>
+      <span class="footer-sep">•</span>
+      <a href="/terms/">الشروط والأحكام</a>
+    </div>
+    <p class="footer-copy">© 2026 WeCoMMerce — منصور عفاس. جميع الحقوق محفوظة.</p>
+    <p class="footer-disclaimer">هذا الموقع ليس جزءاً من موقع فيسبوك أو شركة فيسبوك. هذا الموقع غير معتمد من فيسبوك بأي شكل من الأشكال. FACEBOOK هي علامة تجارية لشركة FACEBOOK, Inc.</p>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-consent-banner">
+    <div class="cc-inner">
+      <div class="cc-text">
+        <strong>🍪 نستخدم ملفات تعريف الارتباط (كوكيز)</strong>
+        <p>
+          نستخدم كوكيز أساسية لتشغيل الموقع، وكوكيز تحليلية وإعلانية (مثل Meta Pixel) لقياس أداء حملاتنا الإعلانية وتحسين تجربتك. يمكنك قبول الكل أو الاكتفاء بالكوكيز الضرورية فقط، ويمكنك تغيير اختيارك في أي وقت من خلال
+          <a href="/cookie-consent/">سياسة الكوكيز</a>.
+        </p>
+      </div>
+      <div class="cc-actions">
+        <button class="cc-btn cc-btn-settings" onclick="ccOpenSettings()">تخصيص</button>
+        <button class="cc-btn cc-btn-reject" onclick="ccRejectAll()">الضروري فقط</button>
+        <button class="cc-btn cc-btn-accept" onclick="ccAcceptAll()">قبول الكل</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Settings Modal -->
+  <div id="cookie-settings-modal">
+    <div class="cc-modal-box">
+      <h3>تخصيص تفضيلات الكوكيز</h3>
+      <p>اختر أنواع الكوكيز التي توافق على استخدامها. يمكنك تعديل هذه التفضيلات لاحقاً في أي وقت من خلال <a href="/cookie-consent/">سياسة الكوكيز</a>.</p>
+
+      <div class="cc-option">
+        <div class="cc-option-text">
+          <strong>كوكيز ضرورية</strong>
+          <span>لازمة لتشغيل الموقع ولا يمكن تعطيلها.</span>
+        </div>
+        <label class="cc-switch">
+          <input type="checkbox" checked disabled>
+          <span class="cc-slider"></span>
+        </label>
+      </div>
+
+      <div class="cc-option">
+        <div class="cc-option-text">
+          <strong>كوكيز تحليلية</strong>
+          <span>تساعدني على فهم كيفية استخدام الموقع لتحسين التجربة.</span>
+        </div>
+        <label class="cc-switch">
+          <input type="checkbox" id="cc-analytics-toggle">
+          <span class="cc-slider"></span>
+        </label>
+      </div>
+
+      <div class="cc-option">
+        <div class="cc-option-text">
+          <strong>كوكيز إعلانية (Meta Pixel)</strong>
+          <span>تُستخدم لقياس فعالية الحملات الإعلانية وتحسين الاستهداف.</span>
+        </div>
+        <label class="cc-switch">
+          <input type="checkbox" id="cc-ads-toggle">
+          <span class="cc-slider"></span>
+        </label>
+      </div>
+
+      <div class="cc-modal-actions">
+        <button class="cc-btn cc-btn-reject" onclick="ccCloseSettings()">إلغاء</button>
+        <button class="cc-btn cc-btn-accept" onclick="ccSavePreferences()">حفظ التفضيلات</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // ===== Cookie Consent Logic =====
+    const CC_KEY = 'wecommerce_cookie_consent';
+
+    function ccGetConsent() {
+      try { return JSON.parse(localStorage.getItem(CC_KEY)); } catch(e) { return null; }
+    }
+
+    function ccSetConsent(consent) {
+      localStorage.setItem(CC_KEY, JSON.stringify(consent));
+      ccApplyConsent(consent);
+      document.getElementById('cookie-consent-banner').classList.remove('show');
+      ccCloseSettings();
+    }
+
+    function ccApplyConsent(consent) {
+      if (consent.ads) {
+        console.log('Advertising cookies enabled (Meta Pixel).');
+        // هنا يمكن تفعيل كود Meta Pixel
+      }
+      if (consent.analytics) {
+        console.log('Analytics cookies enabled.');
+      }
+    }
+
+    function ccAcceptAll() {
+      ccSetConsent({ necessary: true, analytics: true, ads: true, date: new Date().toISOString() });
+    }
+
+    function ccRejectAll() {
+      ccSetConsent({ necessary: true, analytics: false, ads: false, date: new Date().toISOString() });
+    }
+
+    function ccOpenSettings() {
+      const consent = ccGetConsent();
+      document.getElementById('cc-analytics-toggle').checked = consent ? consent.analytics : false;
+      document.getElementById('cc-ads-toggle').checked = consent ? consent.ads : false;
+      document.getElementById('cookie-settings-modal').classList.add('show');
+    }
+
+    function ccCloseSettings() {
+      document.getElementById('cookie-settings-modal').classList.remove('show');
+    }
+
+    function ccSavePreferences() {
+      const analytics = document.getElementById('cc-analytics-toggle').checked;
+      const ads = document.getElementById('cc-ads-toggle').checked;
+      ccSetConsent({ necessary: true, analytics, ads, date: new Date().toISOString() });
+    }
+
+    // عرض البانر إذا لم يكن هناك اختيار مسبق
+    window.addEventListener('load', function() {
+      const existing = ccGetConsent();
+      if (existing) {
+        ccApplyConsent(existing);
+      } else {
+        document.getElementById('cookie-consent-banner').classList.add('show');
+      }
+    });
+  </script>
+  <style>
+    /* أنماط إضافية للكوكيز - تضاف هنا أو في style.css */
+    #cookie-consent-banner {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+      padding: 20px 25px;
+      z-index: 9999;
+      display: none;
+      animation: slideUp .4s ease-out;
+    }
+    #cookie-consent-banner.show { display: block; }
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .cc-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    .cc-text { flex: 1; min-width: 280px; }
+    .cc-text strong { color: var(--ink); font-size: 15px; }
+    .cc-text p { margin: 5px 0 0; font-size: 13.5px; line-height: 1.7; color: var(--ink-2); }
+    .cc-text a { color: var(--accent); text-decoration: none; font-weight: bold; }
+    .cc-text a:hover { text-decoration: underline; }
+    .cc-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .cc-btn {
+      padding: 10px 20px;
+      border-radius: var(--r);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: background .3s, color .3s;
+      white-space: nowrap;
+      font-family: 'Cairo', sans-serif;
+    }
+    .cc-btn-accept { background: var(--accent); color: #fff; }
+    .cc-btn-accept:hover { background: #0048d4; }
+    .cc-btn-reject { background: #fff; color: var(--ink-2); border: 1px solid var(--border); }
+    .cc-btn-reject:hover { background: var(--off); }
+    .cc-btn-settings { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+    .cc-btn-settings:hover { background: var(--accent-dim); }
+
+    #cookie-settings-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    #cookie-settings-modal.show { display: flex; }
+    .cc-modal-box {
+      background: #fff;
+      max-width: 480px;
+      width: 100%;
+      border-radius: var(--r);
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    .cc-modal-box h3 { margin-top: 0; color: var(--accent); font-size: 20px; }
+    .cc-modal-box p { font-size: 13.5px; color: var(--ink-2); line-height: 1.7; }
+    .cc-option {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cc-option:last-of-type { border-bottom: none; }
+    .cc-option-text strong { display: block; font-size: 14px; color: var(--ink); margin-bottom: 3px; }
+    .cc-option-text span { font-size: 12.5px; color: var(--mid); line-height: 1.6; display: block; }
+    .cc-switch { position: relative; width: 42px; height: 24px; flex-shrink: 0; }
+    .cc-switch input { opacity: 0; width: 0; height: 0; }
+    .cc-slider { position: absolute; cursor: pointer; inset: 0; background: #ccc; border-radius: 24px; transition: .3s; }
+    .cc-slider:before { content: ""; position: absolute; height: 18px; width: 18px; right: 3px; bottom: 3px; background: white; border-radius: 50%; transition: .3s; }
+    .cc-switch input:checked + .cc-slider { background: var(--accent); }
+    .cc-switch input:checked + .cc-slider:before { transform: translateX(-18px); }
+    .cc-switch input:disabled + .cc-slider { opacity: .6; cursor: not-allowed; }
+    .cc-modal-actions { display: flex; gap: 10px; margin-top: 22px; }
+    .cc-modal-actions .cc-btn { flex: 1; }
+    @media (max-width: 600px) {
+      .cc-inner { flex-direction: column; align-items: stretch; text-align: right; }
+      .cc-actions { justify-content: flex-start; }
+      .cc-btn { flex: 1; }
+    }
+  </style>
+
+</body>
+</html>
